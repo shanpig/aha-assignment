@@ -23,6 +23,8 @@ export default function Calendar() {
         }}
         dayOfWeekFormatter={(dayOfWeek) => dayOfWeek.format("dd")}
         defaultValue={dayjs()}
+        showDaysOutsideCurrentMonth
+        fixedWeekNumber={6}
       />
     </StyledWrapper>
   );
