@@ -35,6 +35,15 @@ export default function Calendar() {
           ".MuiDayCalendar-weekContainer > button:hover": {
             backgroundColor: "white",
             color: "#080808"
+          },
+          ".MuiYearCalendar-root": {
+            display: "grid",
+            paddingInline: "24px",
+            gridTemplateColumns: "repeat(4, 1fr)",
+            gap: "24px 8px"
+          },
+          ".MuiPickersYear-root": {
+            flexBasis: "unset"
           }
         }}
         localeText={{
@@ -72,11 +81,30 @@ export default function Calendar() {
               }
             },
             toolbarFormat: "MMM, YYYY"
+          },
+          yearButton: {
+            sx: {
+              borderRadius: "2px",
+              lineHeight: "24px",
+              height: "unset",
+              width: "60px",
+              margin: 0,
+              "&.Mui-selected": {
+                backgroundColor: "#00A3FF",
+                color: "white"
+              },
+              "&&&:hover": {
+                backgroundColor: "white",
+                color: "#080808",
+                borderRadius: 0
+              }
+            }
           }
         }}
         slots={{
           calendarHeader: CustomCalendarHeader
         }}
+        views={["year", "day"]}
         dayOfWeekFormatter={(dayOfWeek) => dayOfWeek.format("dd")}
         defaultValue={dayjs()}
         showDaysOutsideCurrentMonth
