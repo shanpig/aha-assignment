@@ -4,6 +4,7 @@ import { StaticDatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 
 import { StyledWrapper } from "./calendar.style";
+import CustomCalendarHeader from "./components/custom-calendar-header";
 
 export default function Calendar() {
   return (
@@ -16,6 +17,9 @@ export default function Calendar() {
           toolbar: {
             toolbarFormat: "MMM, YYYY"
           }
+        }}
+        slots={{
+          calendarHeader: CustomCalendarHeader
         }}
         defaultValue={dayjs()}
       />
