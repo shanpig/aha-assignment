@@ -12,6 +12,11 @@ export default function Calendar() {
         localeText={{
           toolbarTitle: "Text"
         }}
+        slotProps={{
+          toolbar: {
+            toolbarFormat: "MMM, YYYY"
+          }
+        }}
         defaultValue={dayjs()}
       />
     </StyledWrapper>
