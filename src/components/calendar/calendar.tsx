@@ -21,6 +21,7 @@ export default function Calendar() {
         slots={{
           calendarHeader: CustomCalendarHeader
         }}
+        dayOfWeekFormatter={(dayOfWeek) => dayOfWeek.format("dd")}
         defaultValue={dayjs()}
       />
     </StyledWrapper>
