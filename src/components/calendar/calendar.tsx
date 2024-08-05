@@ -8,7 +8,12 @@ import { StyledWrapper } from "./calendar.style";
 export default function Calendar() {
   return (
     <StyledWrapper>
-      <StaticDatePicker defaultValue={dayjs()} />
+      <StaticDatePicker
+        localeText={{
+          toolbarTitle: "Text"
+        }}
+        defaultValue={dayjs()}
+      />
     </StyledWrapper>
   );
 }
