@@ -14,6 +14,14 @@ export default function Calendar() {
           toolbarTitle: "Text"
         }}
         slotProps={{
+          actionBar: {
+            sx: {
+              "& > button": {
+                textTransform: "unset",
+                color: "white"
+              }
+            }
+          },
           toolbar: {
             toolbarFormat: "MMM, YYYY"
           }
