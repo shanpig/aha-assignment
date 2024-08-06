@@ -12,6 +12,9 @@ export default function Calendar() {
         width: "min-content",
         boxShadow: "4px 4px 20px 0px #0000004d",
         borderRadius: "9px",
+        "&&& *": {
+          fontFamily: "Inter"
+        },
         ".MuiTypography-overline": {
           textTransform: "unset"
         },
