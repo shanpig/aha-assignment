@@ -24,10 +24,12 @@ export default function Calendar() {
         ".MuiDayCalendar-weekDayLabel": {
           fontSize: "11px",
           lineHeight: "13px",
-          height: "unset"
+          height: "unset",
+          margin: 0
         },
         ".MuiDayCalendar-header": {
-          marginBottom: "12px"
+          marginBottom: "12px",
+          columnGap: "6px"
         },
         ".MuiPickersDay-today": {
           borderColor: "#00A3FF"
@@ -35,13 +37,20 @@ export default function Calendar() {
         ".MuiDayCalendar-monthContainer .Mui-selected": {
           color: "white"
         },
+        ".MuiDayCalendar-weekContainer": {
+          columnGap: "6px",
+          margin: 0
+        },
+        ".MuiDayCalendar-weekContainer > button": {
+          margin: 0
+        },
         ".MuiDayCalendar-weekContainer > button:hover": {
           backgroundColor: "white",
           color: "#080808"
         },
         ".MuiYearCalendar-root": {
           display: "grid",
-          paddingInline: "24px",
+          padding: "0 24px",
           gridTemplateColumns: "repeat(4, 1fr)",
           gap: "24px 8px"
         },
@@ -55,7 +64,8 @@ export default function Calendar() {
       slotProps={{
         actionBar: {
           sx: {
-            paddingRight: "28px",
+            padding: "0 28px 16px 0",
+            marginTop: "-4px",
             "& > button": {
               textTransform: "unset",
               padding: "8px 16px",
