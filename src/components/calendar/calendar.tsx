@@ -65,6 +65,9 @@ export default function Calendar() {
         toolbarTitle: "Text"
       }}
       slotProps={{
+        layout: {
+          sx: { backgroundColor: "#1B1B1B" }
+        },
         actionBar: {
           sx: {
             padding: "0 28px 16px 0",
