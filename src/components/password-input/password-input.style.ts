@@ -1,4 +1,14 @@
-import { FormControl, styled } from "@mui/material";
+import { FormControl, InputLabel, styled } from "@mui/material";
+
+export const StyledInputLabel = styled(InputLabel)`
+  font-family: Ubuntu;
+  translate: 2px 0;
+  letter-spacing: 0.4px;
+
+  &.Mui-focused {
+    color: white;
+  }
+`;
 
 export const StyledFormControl = styled(FormControl)`
   width: 335px;

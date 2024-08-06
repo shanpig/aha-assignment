@@ -1,11 +1,11 @@
 "use client";
 
-import { InputLabel, OutlinedInput } from "@mui/material";
+import { OutlinedInput } from "@mui/material";
 import { Ubuntu } from "next/font/google";
 import { useState } from "react";
 
 import ValidateItem from "./components/validate-item/validate-item";
-import { StyledFormControl } from "./password-input.style";
+import { StyledFormControl, StyledInputLabel } from "./password-input.style";
 import validator from "./utils/validator";
 
 const ubuntu = Ubuntu({
@@ -22,9 +22,9 @@ export default function PasswordInput() {
   return (
     <main className={ubuntu.className}>
       <StyledFormControl variant="outlined">
-        <InputLabel shrink htmlFor="outlined-adornment-password">
+        <StyledInputLabel shrink htmlFor="outlined-adornment-password">
           Password
-        </InputLabel>
+        </StyledInputLabel>
         <OutlinedInput
           id="outlined-adornment-password"
           label="Password"
