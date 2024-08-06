@@ -1,11 +1,10 @@
 "use client";
 
-import { OutlinedInput } from "@mui/material";
 import { Ubuntu } from "next/font/google";
 import { useState } from "react";
 
+import CustomTextField from "../custom-text-field/custom-text-field";
 import ValidateItem from "./components/validate-item/validate-item";
-import { StyledFormControl, StyledInputLabel } from "./password-input.style";
 import validator from "./utils/validator";
 
 const ubuntu = Ubuntu({
@@ -21,20 +20,13 @@ export default function PasswordInput() {
 
   return (
     <main className={ubuntu.className}>
-      <StyledFormControl variant="outlined">
-        <StyledInputLabel shrink htmlFor="outlined-adornment-password">
-          Password
-        </StyledInputLabel>
-        <OutlinedInput
-          id="outlined-adornment-password"
-          label="Password"
-          value={value}
-          notched
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setValue(e.target.value)}
-        />
-      </StyledFormControl>
+      <CustomTextField
+        label="Password"
+        type="password"
+        placeholder="Password"
+        value={value}
+        setValue={setValue}
+      />
 
       <div
         style={{ width: "335px" }}
