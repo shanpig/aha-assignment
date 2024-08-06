@@ -1,11 +1,16 @@
 import { ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material";
-import { Inter } from "next/font/google";
+import { Inter, Ubuntu } from "next/font/google";
 import { FunctionComponent } from "react";
 import * as React from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const inter = Inter({ subsets: ["latin"] });
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"]
+});
 
 let theme = createTheme({
   palette: {
