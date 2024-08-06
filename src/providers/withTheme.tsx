@@ -1,7 +1,11 @@
 import { ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material";
+import { Inter } from "next/font/google";
 import { FunctionComponent } from "react";
 import * as React from "react";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const inter = Inter({ subsets: ["latin"] });
 
 let theme = createTheme({
   palette: {
@@ -10,6 +14,9 @@ let theme = createTheme({
       main: "#00A3FF",
       light: "#00D1FF"
     }
+  },
+  typography: {
+    fontFamily: "Inter"
   }
 });
 

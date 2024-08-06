@@ -1,10 +1,11 @@
 import type { Preview } from "@storybook/react";
 
 import "../src/app/globals.css";
+import withLocalizationProvider from "../src/providers/withLocalizationProvider";
 import withTheme from "../src/providers/withTheme";
 
 const preview: Preview = {
-  decorators: [(story) => withTheme(story)],
+  decorators: [withTheme, withLocalizationProvider],
   parameters: {
     controls: {
       matchers: {
