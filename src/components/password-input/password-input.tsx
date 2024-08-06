@@ -1,11 +1,17 @@
 "use client";
 
 import { InputLabel, OutlinedInput } from "@mui/material";
+import { Ubuntu } from "next/font/google";
 import { useState } from "react";
 
 import ValidateItem from "./components/validate-item/validate-item";
 import { StyledFormControl } from "./password-input.style";
 import validator from "./utils/validator";
+
+const ubuntu = Ubuntu({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"]
+});
 
 export default function PasswordInput() {
   const [value, setValue] = useState("");
@@ -14,7 +20,7 @@ export default function PasswordInput() {
     validator(value);
 
   return (
-    <>
+    <main className={ubuntu.className}>
       <StyledFormControl variant="outlined">
         <InputLabel shrink htmlFor="outlined-adornment-password">
           Password
@@ -50,6 +56,6 @@ export default function PasswordInput() {
           Longer than 8 characters
         </ValidateItem>
       </div>
-    </>
+    </main>
   );
 }
