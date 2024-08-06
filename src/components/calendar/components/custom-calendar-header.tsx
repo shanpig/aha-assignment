@@ -1,10 +1,13 @@
 import ChevronLeft from "@mui/icons-material/ChevronLeft";
 import ChevronRight from "@mui/icons-material/ChevronRight";
-import { IconButton, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
 import { PickersCalendarHeaderProps } from "@mui/x-date-pickers/PickersCalendarHeader";
 import { Dayjs } from "dayjs";
 
-import { StyledCalendarHeaderRoot } from "./custom-calendar-header.style";
+import {
+  StyledCalendarHeaderRoot,
+  StyledIconButton
+} from "./custom-calendar-header.style";
 
 export default function CustomCalendarHeader(
   props: PickersCalendarHeaderProps<Dayjs>
@@ -19,17 +22,17 @@ export default function CustomCalendarHeader(
   return (
     <StyledCalendarHeaderRoot>
       <Stack spacing={1} direction="row">
-        <IconButton onClick={selectPreviousMonth} title="Previous month">
+        <StyledIconButton onClick={selectPreviousMonth} title="Previous month">
           <ChevronLeft />
-        </IconButton>
+        </StyledIconButton>
       </Stack>
-      <Typography variant="body2">
+      <Typography variant="body1">
         {currentMonth.format("MMMM YYYY")}
       </Typography>
       <Stack spacing={1} direction="row">
-        <IconButton onClick={selectNextMonth} title="Next month">
+        <StyledIconButton onClick={selectNextMonth} title="Next month">
           <ChevronRight />
-        </IconButton>
+        </StyledIconButton>
       </Stack>
     </StyledCalendarHeaderRoot>
   );
