@@ -4,28 +4,24 @@ import { StaticDatePicker } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 
 import { CalendarStyles } from "./calendar.constants";
-import CustomCalendarHeader from "./components/custom-calendar-header";
+import calendarHeader from "./components/custom-calendar-header";
 
 export default function Calendar() {
   return (
     <StaticDatePicker
       sx={CalendarStyles}
-      localeText={{
-        toolbarTitle: "Text"
-      }}
+      slots={{ calendarHeader }}
+      views={["year", "day"]}
+      localeText={{ toolbarTitle: "Text" }}
+      defaultValue={dayjs()}
+      fixedWeekNumber={6}
+      showDaysOutsideCurrentMonth
+      dayOfWeekFormatter={(dayOfWeek) => dayOfWeek.format("dd")}
       slotProps={{
         toolbar: {
           toolbarFormat: "MMM, YYYY"
         }
       }}
-      slots={{
-        calendarHeader: CustomCalendarHeader
-      }}
-      views={["year", "day"]}
-      dayOfWeekFormatter={(dayOfWeek) => dayOfWeek.format("dd")}
-      defaultValue={dayjs()}
-      showDaysOutsideCurrentMonth
-      fixedWeekNumber={6}
     />
   );
 }

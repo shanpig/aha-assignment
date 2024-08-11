@@ -5,35 +5,32 @@ import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 
 import { CalendarStyles } from "../calendar/calendar.constants";
-import CustomCalendarHeader from "../calendar/components/custom-calendar-header";
-import CustomTextField from "../custom-text-field/custom-text-field";
+import calendarHeader from "../calendar/components/custom-calendar-header";
+import textField from "../custom-text-field/custom-text-field";
 
 export default function AdvanceEffects() {
   const [tempDate, setTempDate] = useState<Dayjs | null>(null);
   const [date, setDate] = useState<Dayjs | null>(null);
   const [open, setOpen] = useState(false);
 
+  const handleClose = () => {
+    setDate(date);
+    setOpen(false);
+  };
+
   return (
     <DatePicker
       open={open}
       value={date}
-      onClose={() => {
-        setDate(date);
-        setOpen(false);
-      }}
+      views={["year", "day"]}
+      onClose={handleClose}
       onChange={(newDate) => setTempDate(newDate)}
       closeOnSelect={false}
-      views={["year", "day"]}
+      fixedWeekNumber={6}
       dayOfWeekFormatter={(dayOfWeek) => dayOfWeek.format("dd")}
       showDaysOutsideCurrentMonth
-      fixedWeekNumber={6}
-      localeText={{
-        toolbarTitle: "Text"
-      }}
-      slots={{
-        calendarHeader: CustomCalendarHeader,
-        textField: CustomTextField
-      }}
+      localeText={{ toolbarTitle: "Text" }}
+      slots={{ calendarHeader, textField }}
       slotProps={{
         textField: {
           value: date,
@@ -43,9 +40,7 @@ export default function AdvanceEffects() {
         },
         popper: {
           anchorEl: document.querySelector("#outlined-adornment-Birthday"),
-          sx: {
-            translate: "0 14px"
-          }
+          sx: { translate: "0 14px" }
         },
         mobilePaper: {
           sx: { backgroundColor: "unset" }
