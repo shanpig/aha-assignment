@@ -21,7 +21,8 @@ export default function CustomTextField({
         },
         ".MuiOutlinedInput-root.Mui-focused fieldset.MuiOutlinedInput-notchedOutline":
           {
-            borderWidth: "3px"
+            borderWidth: "3px",
+            borderColor: type === "password" ? "primary.main" : "white"
           },
         fieldset: {
           borderRadius: "8px",
