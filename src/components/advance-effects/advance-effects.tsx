@@ -1,20 +1,26 @@
 "use client";
 
 import { DatePicker } from "@mui/x-date-pickers";
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 
 import CustomCalendarHeader from "../calendar/components/custom-calendar-header";
 import CustomTextField from "../custom-text-field/custom-text-field";
 
 export default function AdvanceEffects() {
+  const [tempDate, setTempDate] = useState<Dayjs | null>(null);
+  const [date, setDate] = useState<Dayjs | null>(null);
   const [open, setOpen] = useState(false);
 
   return (
     <DatePicker
       open={open}
-      onAccept={console.log}
-      onClose={() => setOpen(false)}
+      value={date}
+      onClose={() => {
+        setDate(date);
+        setOpen(false);
+      }}
+      onChange={(newDate) => setTempDate(newDate)}
       closeOnSelect={false}
       views={["year", "day"]}
       dayOfWeekFormatter={(dayOfWeek) => dayOfWeek.format("dd")}
@@ -33,10 +39,8 @@ export default function AdvanceEffects() {
         }
       }}
       slotProps={{
-        dialog: {
-          onClose: () => setOpen(false)
-        },
         textField: {
+          value: date,
           label: "Birthday",
           placeholder: "mm/dd/yyyy",
           onClick: () => setOpen(true)
@@ -52,6 +56,11 @@ export default function AdvanceEffects() {
         },
         desktopPaper: {
           sx: { borderRadius: "9px" }
+        },
+        day: {
+          day: dayjs("2024/08/01"),
+          today: true,
+          selected: true
         },
         layout: {
           sx: {
@@ -109,6 +118,13 @@ export default function AdvanceEffects() {
         actionBar: {
           hidden: false,
           actions: ["cancel", "accept"],
+          onAccept: () => {
+            setDate(tempDate);
+            setOpen(false);
+          },
+          onCancel: () => {
+            setTempDate(null);
+          },
           sx: {
             padding: "0 28px 16px 0",
             marginTop: "-4px",
