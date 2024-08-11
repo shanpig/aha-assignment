@@ -28,10 +28,7 @@ export default function PasswordInput() {
         setValue={setValue}
       />
 
-      <div
-        style={{ width: "335px" }}
-        className="py-2 px-3 rounded-lg bg-grayScale mt-5 text-white text-sm"
-      >
+      <div className="w-[335px] py-2 px-3 rounded-lg bg-grayScale mt-5 text-white text-sm">
         <ValidateItem isValid={hasUpperCase}>
           Have at least one uppercase letter
         </ValidateItem>

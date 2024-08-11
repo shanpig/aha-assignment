@@ -4,11 +4,6 @@ import { Stack, Typography } from "@mui/material";
 import { PickersCalendarHeaderProps } from "@mui/x-date-pickers/PickersCalendarHeader";
 import { Dayjs } from "dayjs";
 
-import {
-  StyledCalendarHeaderRoot,
-  StyledIconButton
-} from "./custom-calendar-header.style";
-
 export default function CustomCalendarHeader(
   props: PickersCalendarHeaderProps<Dayjs>
 ) {
@@ -22,19 +17,17 @@ export default function CustomCalendarHeader(
   const selectYearView = () => onViewChange?.("year");
 
   return (
-    <StyledCalendarHeaderRoot
-      sx={
-        view === "year"
-          ? {
-              paddingBottom: "18px"
-            }
-          : {}
-      }
+    <div
+      className={`flex justify-between pt-1 ${view === "year" ? "pb-[18px]" : "pb-2"} items-center`}
     >
       <Stack spacing={1} direction="row">
-        <StyledIconButton onClick={selectPreviousMonth} title="Previous month">
+        <div
+          className="p-3"
+          onClick={selectPreviousMonth}
+          title="Previous month"
+        >
           <ChevronLeft />
-        </StyledIconButton>
+        </div>
       </Stack>
       <Typography
         variant="body1"
@@ -46,10 +39,10 @@ export default function CustomCalendarHeader(
           : currentMonth.format("MMMM YYYY")}
       </Typography>
       <Stack spacing={1} direction="row">
-        <StyledIconButton onClick={selectNextMonth} title="Next month">
+        <div className="p-3" onClick={selectNextMonth} title="Next month">
           <ChevronRight />
-        </StyledIconButton>
+        </div>
       </Stack>
-    </StyledCalendarHeaderRoot>
+    </div>
   );
 }
